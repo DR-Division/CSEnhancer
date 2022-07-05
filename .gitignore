@@ -1,10 +1,8 @@
-DeathMatch.iml
-lib\
 .idea
-.idea/
-src/main/java/lib
+libs/
+.github
 target
 dependency-reduced-pom.xml
 out
 CrackShotEnhancer.iml
-libs\
+src/main/java/external/

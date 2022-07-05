@@ -6,7 +6,7 @@
 
     <groupId>com.division</groupId>
     <artifactId>CrackShotEnhancer</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.9.3</version>
 
     <build>
         <resources>
@@ -70,21 +70,17 @@
             <artifactId>crackshot</artifactId>
             <version>0.98.9</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/src/main/libs/CrackShot.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.shampaggon</groupId>
-            <artifactId>PacketWrapper</artifactId>
-            <version>0.98.9</version>
-            <scope>system</scope>
-            <systemPath>${pom.basedir}/src/main/libs/PacketWrapper.jar</systemPath>
+            <systemPath>${pom.basedir}/libs/CrackShot.jar</systemPath>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.github.azbh111/ProtocolLib -->
         <dependency>
             <groupId>com.github.azbh111</groupId>
             <artifactId>ProtocolLib</artifactId>
             <version>4.4.0</version>
+            <scope>provided</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+
     </dependencies>
 
 

@@ -34,10 +34,4 @@ public class CrackShotAPI {
         return utility.generateWeapon(weapon);
     }
 
-    public void fixCSError(ItemStack stack) {
-        ItemMeta meta = stack.getItemMeta();
-        meta.setDisplayName("«-1»");
-        stack.setItemMeta(meta);
-    }
-
 }

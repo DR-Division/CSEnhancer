@@ -1,12 +1,10 @@
 package com.division.packet;
 
-import com.comphenix.packetwrapper.WrapperPlayServerEntityMetadata;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.wrappers.WrappedWatchableObject;
-import com.division.listener.ScopeEvent;
-import org.bukkit.Bukkit;
+import com.comphenix.packetwrapper.WrapperPlayServerEntityMetadata;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -24,7 +22,7 @@ public class GlowPacketAdapter extends PacketAdapter {
     public void onPacketSending(PacketEvent event) {
         if (event.getPacketType() == PacketType.Play.Server.ENTITY_METADATA) {
             Player p = event.getPlayer();
-            if (ScopeEvent.scopeList.contains(p.getUniqueId())) {
+            if (p.hasMetadata("CE_Thermal")) {
                 WrapperPlayServerEntityMetadata metadata = new WrapperPlayServerEntityMetadata(event.getPacket().deepClone());
                 Entity entity = metadata.getEntity(event);
                 if (entity != p && entity instanceof LivingEntity) {

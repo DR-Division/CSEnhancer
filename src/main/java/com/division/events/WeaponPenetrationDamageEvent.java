@@ -1,27 +1,27 @@
 package com.division.events;
 
 import com.division.enums.PenetrationType;
-import org.bukkit.Location;
+import com.shampaggon.crackshot.events.WeaponDamageEntityEvent;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
-import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class WeaponPenetrationDamageEvent extends Event implements Cancellable {
+public class WeaponPenetrationDamageEvent extends WeaponDamageEntityEvent implements Cancellable {
 
     private static final HandlerList HANDLERS = new HandlerList();
     private boolean isCancelled;
     private final Player shooter;
     private final Entity victim;
     private final PenetrationType type;
-    private int damage;
+    private double damage;
 
-    public WeaponPenetrationDamageEvent(Player shooter, Entity victim, PenetrationType type, int damage) {
-        this.shooter = shooter;
+    public WeaponPenetrationDamageEvent(Player player, Entity victim, Entity dmgSource, PenetrationType type,  String weaponTitle, double totalDmg, boolean headShot, boolean backStab, boolean critHit) {
+        super(player, victim, dmgSource, weaponTitle, totalDmg, headShot, backStab, critHit);
+        this.shooter = player;
         this.victim = victim;
         this.type = type;
-        this.damage = damage;
+        this.damage = totalDmg;
         this.isCancelled = false;
     }
 
@@ -56,7 +56,7 @@ public class WeaponPenetrationDamageEvent extends Event implements Cancellable {
         return type;
     }
 
-    public int getDamage() {
+    public double getDamage() {
         return damage;
     }
 
